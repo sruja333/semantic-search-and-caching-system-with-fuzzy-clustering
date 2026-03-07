@@ -1,0 +1,9 @@
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.1
+matplotlib==3.10.5
+umap-learn==0.5.9.post2
+joblib==1.5.1
+pypdf==6.0.0

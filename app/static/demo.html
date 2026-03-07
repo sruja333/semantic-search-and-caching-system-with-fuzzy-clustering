@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semantic Cache Demo</title>
+  <style>
+    :root {
+      --bg-1: #f5f9ff;
+      --bg-2: #e9f7f2;
+      --ink: #1f2a37;
+      --muted: #5f6b7a;
+      --accent: #0f766e;
+      --accent-2: #155e75;
+      --card: #ffffff;
+      --ring: rgba(21, 94, 117, 0.25);
+      --ok: #059669;
+      --warn: #ca8a04;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "Trebuchet MS", "Helvetica Neue", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(21, 94, 117, 0.18), transparent 35%),
+        radial-gradient(circle at 90% 20%, rgba(15, 118, 110, 0.16), transparent 32%),
+        linear-gradient(145deg, var(--bg-1), var(--bg-2));
+      padding: 24px;
+    }
+
+    .shell {
+      max-width: 980px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 20px 55px rgba(16, 24, 40, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      letter-spacing: 0.2px;
+      font-size: clamp(1.25rem, 1rem + 1.2vw, 1.8rem);
+    }
+
+    .sub {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .query-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.98rem;
+      background: #fff;
+      outline: none;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 4px var(--ring);
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+
+    button:hover { filter: brightness(1.03); }
+    button:active { transform: translateY(1px); }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .status {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 10px 0 16px;
+      min-height: 28px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      background: #eef2f7;
+      color: #334155;
+    }
+
+    .pill.hit { background: rgba(5, 150, 105, 0.14); color: var(--ok); }
+    .pill.miss { background: rgba(202, 138, 4, 0.14); color: var(--warn); }
+
+    .results {
+      display: grid;
+      gap: 10px;
+    }
+
+    .result-card {
+      background: var(--card);
+      border: 1px solid rgba(15, 23, 42, 0.09);
+      border-radius: 12px;
+      padding: 12px;
+      animation: rise 0.2s ease-out;
+      overflow: hidden;
+    }
+
+    .result-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+
+    .score {
+      color: #334155;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .doc {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: #334155;
+      font-size: 0.82rem;
+      margin-bottom: 6px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .meta-block {
+      margin: 4px 0 6px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .meta-line {
+      margin: 0;
+      color: #334155;
+      line-height: 1.35;
+      font-size: 0.9rem;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .meta-key {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .preview {
+      margin: 0;
+      color: #334155;
+      line-height: 1.38;
+      font-size: 0.92rem;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .error {
+      background: rgba(220, 38, 38, 0.1);
+      color: #991b1b;
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 12px; }
+      .shell { padding: 14px; border-radius: 14px; }
+      .query-row { grid-template-columns: 1fr; }
+      button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <h1>Semantic Search Demo</h1>
+    <p class="sub">Enter a query and inspect cache behavior, dominant cluster, and top matches.</p>
+
+    <div class="query-row">
+      <input id="queryInput" type="text" value="nasa shuttle orbit satellite launch mission" />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div class="status" id="status"></div>
+    <div id="errorBox"></div>
+    <section class="results" id="results"></section>
+  </main>
+
+  <script>
+    const queryInput = document.getElementById("queryInput");
+    const searchBtn = document.getElementById("searchBtn");
+    const status = document.getElementById("status");
+    const results = document.getElementById("results");
+    const errorBox = document.getElementById("errorBox");
+
+    function esc(text) {
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function parseStructuredPreview(rawText) {
+      const text = String(rawText || "").replace(/\s+/g, " ").trim();
+      if (!text) return { meta: [], body: "" };
+
+      const metaRegex = /(Xref|Newsgroups|Path|From|Subject):/g;
+      const matches = [...text.matchAll(metaRegex)];
+      if (!matches.length) {
+        return { meta: [], body: text };
+      }
+
+      const meta = [];
+      for (let i = 0; i < matches.length; i++) {
+        const key = matches[i][1];
+        const valueStart = matches[i].index + key.length + 1;
+        const valueEnd = i + 1 < matches.length ? matches[i + 1].index : text.length;
+        const value = text.slice(valueStart, valueEnd).trim();
+        if (value) meta.push({ key, value });
+      }
+
+      const prefix = text.slice(0, matches[0].index).trim();
+      const body = prefix ? prefix : "";
+      return { meta, body };
+    }
+
+    async function runQuery() {
+      const query = queryInput.value.trim();
+      if (!query) return;
+      searchBtn.disabled = true;
+      errorBox.innerHTML = "";
+      status.innerHTML = "<span class='pill'>Loading...</span>";
+      results.innerHTML = "";
+
+      try {
+        const response = await fetch("/query", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query })
+        });
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.detail || "Request failed");
+        }
+
+        status.innerHTML = [
+          `<span class="pill ${data.cache_hit ? "hit" : "miss"}">${data.cache_hit ? "Cache Hit" : "Cache Miss"}</span>`,
+          `<span class="pill">Cluster ${data.dominant_cluster}</span>`,
+          `<span class="pill">Similarity ${Number(data.similarity_score || 0).toFixed(3)}</span>`
+        ].join("");
+
+        const rows = data.result?.top_matches || [];
+        if (!rows.length) {
+          results.innerHTML = "<div class='result-card'><p class='preview'>No matches found.</p></div>";
+          return;
+        }
+
+        results.innerHTML = rows.map((row) => {
+          const parsed = parseStructuredPreview(row.preview || "");
+          const metaHtml = parsed.meta.map((m) => (
+            `<p class="meta-line"><span class="meta-key">${esc(m.key)}:</span> ${esc(m.value)}</p>`
+          )).join("");
+          const bodyHtml = parsed.body ? `<p class="preview">${esc(parsed.body)}</p>` : "";
+
+          return `
+          <article class="result-card">
+            <div class="result-top">
+              <span><strong>${esc(row.label)}</strong></span>
+              <span class="score">score=${Number(row.score).toFixed(4)}</span>
+            </div>
+            <div class="doc">${esc(row.doc_id)}</div>
+            <div class="meta-block">${metaHtml}</div>
+            ${bodyHtml}
+          </article>
+        `;
+        }).join("");
+      } catch (err) {
+        status.innerHTML = "";
+        errorBox.innerHTML = `<div class="error">${esc(err.message || "Unexpected error")}</div>`;
+      } finally {
+        searchBtn.disabled = false;
+      }
+    }
+
+    searchBtn.addEventListener("click", runQuery);
+    queryInput.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter") runQuery();
+    });
+  </script>
+</body>
+</html>

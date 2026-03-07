@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+artifacts/
+assignment_extracted.txt
+task.pdf
+twenty+newsgroups.zip
+
+venv/
+data/
+models/
+notebooks/.ipynb_checkpoints/
+.vscode/
