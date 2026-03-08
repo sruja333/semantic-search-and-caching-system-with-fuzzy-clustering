@@ -1,0 +1,16 @@
+{
+  "queries_tested": 250,
+  "hit_measurements": 250,
+  "miss_measurements": 230,
+  "hit_latency_ms": {
+    "mean": 60.60514879983384,
+    "median": 58.782799998880364,
+    "p95": 78.68869999947492
+  },
+  "miss_latency_ms": {
+    "mean": 80.4614947824081,
+    "median": 79.73935000336496,
+    "p95": 85.92840000346769
+  },
+  "speedup_factor_mean": 1.3276346379109738
+}

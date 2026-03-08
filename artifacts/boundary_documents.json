@@ -1,0 +1,165 @@
+{
+  "top_n": 10,
+  "documents": [
+    {
+      "doc_id": "talk.religion.misc/82761",
+      "label": "talk.religion.misc",
+      "dominant_cluster": 3,
+      "top_two_clusters": [
+        3,
+        12
+      ],
+      "top_two_probs": [
+        0.038256071507930756,
+        0.03777635842561722
+      ],
+      "top_two_gap": 0.0004797130823135376,
+      "entropy": 3.331549882888794,
+      "preview": "Xref: cantaloupe.srv.cs.cmu.edu alt.atheism:51129 talk.religion.misc:82761 talk.origins:40400 Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near"
+    },
+    {
+      "doc_id": "alt.atheism/51129",
+      "label": "alt.atheism",
+      "dominant_cluster": 3,
+      "top_two_clusters": [
+        3,
+        12
+      ],
+      "top_two_probs": [
+        0.038256071507930756,
+        0.03777635842561722
+      ],
+      "top_two_gap": 0.0004797130823135376,
+      "entropy": 3.331549882888794,
+      "preview": "Xref: cantaloupe.srv.cs.cmu.edu alt.atheism:51129 talk.religion.misc:82761 talk.origins:40400 Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near"
+    },
+    {
+      "doc_id": "soc.religion.christian/20530",
+      "label": "soc.religion.christian",
+      "dominant_cluster": 3,
+      "top_two_clusters": [
+        3,
+        0
+      ],
+      "top_two_probs": [
+        0.03871144726872444,
+        0.0380384624004364
+      ],
+      "top_two_gap": 0.0006729848682880402,
+      "entropy": 3.3315353393554688,
+      "preview": "Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!news-feed-1.peachnet.edu!gatech!howland.reston.ans.net!wupost!uwm.edu!cs.utexas.edu!rutgers!igor.rutgers.edu!athos.rutgers.edu!christian From: tbrent@florin.e"
+    },
+    {
+      "doc_id": "talk.religion.misc/83626",
+      "label": "talk.religion.misc",
+      "dominant_cluster": 3,
+      "top_two_clusters": [
+        3,
+        0
+      ],
+      "top_two_probs": [
+        0.03864621743559837,
+        0.038008153438568115
+      ],
+      "top_two_gap": 0.0006380639970302582,
+      "entropy": 3.3315165042877197,
+      "preview": "Xref: cantaloupe.srv.cs.cmu.edu alt.atheism:53227 talk.religion.misc:83626 talk.origins:40912 Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!news.tek.com!vice!bobbe From: bobbe@vice.ICO.TEK.COM ("
+    },
+    {
+      "doc_id": "alt.atheism/53227",
+      "label": "alt.atheism",
+      "dominant_cluster": 3,
+      "top_two_clusters": [
+        3,
+        0
+      ],
+      "top_two_probs": [
+        0.03864621743559837,
+        0.038008153438568115
+      ],
+      "top_two_gap": 0.0006380639970302582,
+      "entropy": 3.3315165042877197,
+      "preview": "Xref: cantaloupe.srv.cs.cmu.edu alt.atheism:53227 talk.religion.misc:83626 talk.origins:40912 Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!news.tek.com!vice!bobbe From: bobbe@vice.ICO.TEK.COM ("
+    },
+    {
+      "doc_id": "talk.politics.misc/178981",
+      "label": "talk.politics.misc",
+      "dominant_cluster": 3,
+      "top_two_clusters": [
+        3,
+        12
+      ],
+      "top_two_probs": [
+        0.03917042165994644,
+        0.037830252200365067
+      ],
+      "top_two_gap": 0.0013401694595813751,
+      "entropy": 3.331502676010132,
+      "preview": "Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!gatech!udel!bogus.sura.net!news-feed-1.peachnet.edu!umn.edu!msus1.msus.edu!vax1.mank"
+    },
+    {
+      "doc_id": "alt.atheism/53492",
+      "label": "alt.atheism",
+      "dominant_cluster": 21,
+      "top_two_clusters": [
+        21,
+        3
+      ],
+      "top_two_probs": [
+        0.038722533732652664,
+        0.038598574697971344
+      ],
+      "top_two_gap": 0.0001239590346813202,
+      "entropy": 3.331486940383911,
+      "preview": "Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!usc!venice!batman.bmd.trw.com!jbrown From: jbrown@"
+    },
+    {
+      "doc_id": "talk.politics.misc/178294",
+      "label": "talk.politics.misc",
+      "dominant_cluster": 3,
+      "top_two_clusters": [
+        3,
+        0
+      ],
+      "top_two_probs": [
+        0.039078328758478165,
+        0.038071922957897186
+      ],
+      "top_two_gap": 0.0010064058005809784,
+      "entropy": 3.3314712047576904,
+      "preview": "Xref: cantaloupe.srv.cs.cmu.edu talk.abortion:120322 talk.politics.misc:178294 talk.religion.misc:83435 Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!sol.ctr.columbi"
+    },
+    {
+      "doc_id": "talk.religion.misc/83435",
+      "label": "talk.religion.misc",
+      "dominant_cluster": 3,
+      "top_two_clusters": [
+        3,
+        0
+      ],
+      "top_two_probs": [
+        0.039078328758478165,
+        0.038071922957897186
+      ],
+      "top_two_gap": 0.0010064058005809784,
+      "entropy": 3.3314712047576904,
+      "preview": "Xref: cantaloupe.srv.cs.cmu.edu talk.abortion:120322 talk.politics.misc:178294 talk.religion.misc:83435 Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!sol.ctr.columbi"
+    },
+    {
+      "doc_id": "alt.atheism/51205",
+      "label": "alt.atheism",
+      "dominant_cluster": 21,
+      "top_two_clusters": [
+        21,
+        3
+      ],
+      "top_two_probs": [
+        0.03891449049115181,
+        0.038422681391239166
+      ],
+      "top_two_gap": 0.0004918090999126434,
+      "entropy": 3.3314685821533203,
+      "preview": "Xref: cantaloupe.srv.cs.cmu.edu alt.atheism:51205 talk.origins:40423 Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!wupost!crcnis1.unl.edu!moe.ksu.ks"
+    }
+  ]
+}

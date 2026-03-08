@@ -1,0 +1,35 @@
+{
+  "method": "cluster-aware semantic cache simulation over exact/same-topic/different-topic query pairs",
+  "rows": [
+    {
+      "threshold": 0.8,
+      "exact_hit_rate": 1.0,
+      "same_topic_hit_rate": 0.2833333333333333,
+      "different_topic_false_hit_rate": 0.058333333333333334,
+      "tradeoff_score": 0.47583333333333333
+    },
+    {
+      "threshold": 0.85,
+      "exact_hit_rate": 1.0,
+      "same_topic_hit_rate": 0.21666666666666667,
+      "different_topic_false_hit_rate": 0.05,
+      "tradeoff_score": 0.44083333333333335
+    },
+    {
+      "threshold": 0.9,
+      "exact_hit_rate": 1.0,
+      "same_topic_hit_rate": 0.15,
+      "different_topic_false_hit_rate": 0.03333333333333333,
+      "tradeoff_score": 0.4141666666666667
+    },
+    {
+      "threshold": 0.95,
+      "exact_hit_rate": 1.0,
+      "same_topic_hit_rate": 0.1,
+      "different_topic_false_hit_rate": 0.03333333333333333,
+      "tradeoff_score": 0.38166666666666665
+    }
+  ],
+  "recommended_threshold": 0.8,
+  "selection_reason": "max tradeoff_score (high same-topic reuse, low cross-topic false hits)"
+}

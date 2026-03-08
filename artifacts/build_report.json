@@ -1,0 +1,10 @@
+{
+  "documents_indexed": 19829,
+  "vector_store_path": "C:\\Users\\sruja\\OneDrive\\Desktop\\trademarkia\\artifacts\\vector_store.joblib",
+  "clustering_path": "C:\\Users\\sruja\\OneDrive\\Desktop\\trademarkia\\artifacts\\fuzzy_clusters.joblib",
+  "cluster_report_path": "C:\\Users\\sruja\\OneDrive\\Desktop\\trademarkia\\artifacts\\cluster_report.json",
+  "cache_threshold_report_path": "C:\\Users\\sruja\\OneDrive\\Desktop\\trademarkia\\artifacts\\cache_threshold_report.json",
+  "selected_clusters": 28,
+  "cache_similarity_threshold": 0.8,
+  "cache_threshold_recommended": 0.8
+}
